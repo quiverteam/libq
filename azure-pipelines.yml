@@ -1,0 +1,20 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script: sh ./_create_makefile
+  displayName: 'Create the makefile'
+
+- script: sudo apt install make build-essential
+  displayName: 'Install build essentials'
+
+- script: make
+  displayName: 'Compiled libQ from generated makefile'
