@@ -10,6 +10,12 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+- script: git submodule update --init --remote
+  displayName: 'Update git submodule (For QPC)'
+
+- script: ls devtools/qpc
+  displayName: 'Debug submodule'
+
 - script: sh ./_create_makefile
   displayName: 'Create the makefile'
 
