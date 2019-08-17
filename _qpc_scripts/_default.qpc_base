@@ -1,0 +1,16 @@
+//-----------------------------------------------------------------------------
+//	Base Configuration File for QPC
+//-----------------------------------------------------------------------------
+
+configurations
+{
+	Debug
+	Release
+}
+
+project "libq" 			"libq.qpc"
+
+group "everything"
+{
+	"libq"
+}

@@ -1,0 +1,50 @@
+macro SRC_DIR
+
+macro CONFIG "Debug" 	[$DEBUG]
+macro CONFIG "Release" 	[$RELEASE]
+
+macro ARCH_FOLDER "x86" 		[$WIN32 || $POSIX32]
+macro ARCH_FOLDER "x64" 		[$WIN64 || $POSIX64]
+
+macro PLAT_FOLDER "win32" 		[$WIN32]
+macro PLAT_FOLDER "win64" 		[$WIN64]
+macro PLAT_FOLDER "linux32" 	[$LINUX32]
+macro PLAT_FOLDER "linux64" 	[$LINUX64]
+macro PLAT_FOLDER "macos" 		[$MACOS]
+
+configuration
+{	
+	general	
+	{
+		toolset_version "msvc-v142"		[$WINDOWS && $VSTUDIO]
+		toolset_version "gcc"			[$MAKEFILE && $GCC]
+		toolset_version "clang"			[$MAKEFILE && $CLANG]
+	}
+	
+	compiler
+	{		
+		preprocessor_definitions
+		{
+			WIN32 _WINDOWS	[$WINDOWS]
+			LINUX _LINUX	[$LINUX]
+			
+			_DEBUG	[$DEBUG]
+			NDEBUG	[$RELEASE]
+		}
+		
+		options	[$VSTUDIO]
+		{
+			/Od /MDd /ZI /RTC1	[$DEBUG]
+			/O2 /MD /Zi			[$RELEASE]
+			/TC /W3
+		}
+	}
+	
+	linker
+	{
+		options	[$WINDOWS]
+		{
+			/SUBSYSTEM:WINDOWS
+		}
+	}
+}

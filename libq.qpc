@@ -1,0 +1,44 @@
+
+macro PROJECT_NAME "libq"
+macro SRC_DIR "."
+
+include "$SRC_DIR/_qpc_scripts/base_common.qpc"
+
+configuration
+{	
+	general	
+	{
+		configuration_type	dynamic_library
+		language cpp
+	}
+	
+	linker
+	{		
+		libraries 
+		{
+			"ws2_32" "winmm"		[$WINDOWS]
+			"pthread" "dl" "m" "c"	[$LINUX]
+		}
+	}
+}
+
+files
+{
+	folder "Threading"
+	{
+		"threadtools.h"
+		"threadtools.cpp"
+	}
+	
+	//folder "Filesystem"
+	//{
+	//	"filesystem.h"
+	//	"filesystem.cpp"
+	//}
+
+	folder "Platform"
+	{
+		"platform.cpp"
+		"platform.h"
+	}
+}

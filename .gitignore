@@ -1,0 +1,16 @@
+# EDITOR CONFIGS
+.vscode
+.idea
+
+# BUILD METADATA
+libs.qpc_hash
+
+# BUILD OBJECTS
+*.o
+*.out
+*.obj
+*.so
+*.a
+
+# BUILD SCRIPTS
+makefile

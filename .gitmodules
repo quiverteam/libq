@@ -1,0 +1,4 @@
+[submodule "devtools/qpc"]
+	path = devtools/qpc
+	url = git@github.com:quiverteam/QuiverProjectCreator.git
+	branch = script_redesign
